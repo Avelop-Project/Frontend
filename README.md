@@ -5,8 +5,6 @@ $ npm install -g expo-cli
 $ npm install -g typescript
 ```
 
-<br/>
-
 # 📌 Start
 
 ```bash
