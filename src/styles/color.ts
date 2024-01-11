@@ -4,4 +4,6 @@ export default {
   COLOR_BOX_SHADOW: "rgba(0, 0, 0, 0.2)",
 
   COLOR_TAB_BAR_ICON: "#AFAFAF",
+
+  COLOR_HEADER: "#fff",
 };
