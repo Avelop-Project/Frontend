@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, ScrollView, View } from "react-native";
+import { SafeAreaView, StyleSheet, ScrollView, View, Text } from "react-native";
 
 import color from "../styles/color";
 
@@ -9,15 +9,19 @@ import { HeaderProps } from "./header/Header";
 type Props = {
   children: React.ReactNode;
   header: HeaderProps;
+  stickyHeaderIndices?: number[];
 };
 
-const MainLayout = ({ children, header }: Props) => {
+const MainLayout = ({ children, header, stickyHeaderIndices }: Props) => {
   return (
     <SafeAreaView style={styles.container}>
       <Header options={header} />
 
-      <ScrollView style={styles.inner}>
-        <View style={styles.content}>{children}</View>
+      <ScrollView
+        style={styles.scrollView}
+        stickyHeaderIndices={stickyHeaderIndices}
+      >
+        {children}
       </ScrollView>
     </SafeAreaView>
   );
@@ -31,14 +35,8 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
   },
-  inner: {
-    width: "100%",
+  scrollView: {
     flex: 1,
-    // backgroundColor: "aqua",
-  },
-  content: {
     width: "100%",
-    flex: 1,
-    // backgroundColor: "orange",
   },
 });

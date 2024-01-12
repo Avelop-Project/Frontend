@@ -8,7 +8,13 @@ const MyPageNavigator = () => {
       initialRouteName="MyPageScreen"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name="MyPageScreen" component={MyPageScreen} />
+      <Stack.Screen
+        name="MyPageScreen"
+        component={MyPageScreen}
+        options={{
+          title: "마이페이지",
+        }}
+      />
     </Stack.Navigator>
   );
 };

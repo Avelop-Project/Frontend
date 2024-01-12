@@ -8,7 +8,11 @@ const CardsListNavigator = () => {
       initialRouteName="CardsListScreen"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name="CardsListScreen" component={CardsListScreen} />
+      <Stack.Screen
+        name="CardsListScreen"
+        component={CardsListScreen}
+        options={{ title: "둘러보기" }}
+      />
     </Stack.Navigator>
   );
 };

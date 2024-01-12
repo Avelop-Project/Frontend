@@ -9,7 +9,11 @@ const CameraNavigator = () => {
       initialRouteName="CameraScreen"
       screenOptions={{ headerShown: false }}
     >
-      <Stack.Screen name="CameraScreen" component={CameraScreen} />
+      <Stack.Screen
+        name="CameraScreen"
+        component={CameraScreen}
+        options={{ title: "카메라" }}
+      />
     </Stack.Navigator>
   );
 };

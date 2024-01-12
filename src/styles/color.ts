@@ -8,4 +8,10 @@ export default {
   COLOR_HEADER: "#fff",
 
   COLOR_BLUE_TEXT: "#1B6FEE",
+  COLOR_GRAY_TEXT: "#959595",
+  COLOR_WHITE_TEXT: "#fff",
+
+  COLOR_GRAY_BORDER: "#DEDEDE",
+
+  COLOR_NOT_SELECTED_FILTER: "#EEF1F3",
 };
