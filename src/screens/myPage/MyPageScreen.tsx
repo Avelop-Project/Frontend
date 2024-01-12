@@ -4,7 +4,9 @@ import { Text, StyleSheet } from "react-native";
 
 const MyPageScreen = () => {
   return (
-    <MainLayout header={{ headerText: "마이페이지" }}>
+    <MainLayout
+      header={{ headerText: "마이페이지", headerRight: { type: "cog" } }}
+    >
       <Text style={styles.text}>MyPage</Text>
     </MainLayout>
   );

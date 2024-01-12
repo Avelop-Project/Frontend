@@ -3,8 +3,21 @@ import { View, Text, StyleSheet, Pressable } from "react-native";
 import { globalStyle } from "../../styles/global";
 import color from "../../styles/color";
 
+import { AntDesign, FontAwesome5 } from "@expo/vector-icons";
+import { useNavigation } from "@react-navigation/native";
+
+const headerItemCode = {
+  Back: "back",
+  Cog: "cog",
+  Complete: "complete",
+  Map: "map",
+  Filter: "filter",
+} as const;
+
+type HeaderItemType = (typeof headerItemCode)[keyof typeof headerItemCode];
+
 type HeaderItemProps = {
-  type?: string;
+  type?: HeaderItemType;
   onClick?: () => void;
 };
 
@@ -19,7 +32,30 @@ type Props = {
 };
 
 const HeaderItem = ({ type, onClick }: HeaderItemProps) => {
-  return <Pressable style={styles.headerItem}></Pressable>;
+  const navigation = useNavigation();
+
+  const onPress = () => {
+    if (type === headerItemCode.Back) {
+      navigation.goBack();
+    } else {
+      if (onClick) onClick();
+    }
+  };
+  return (
+    <Pressable style={styles.headerItem} onPress={onPress}>
+      {type === headerItemCode.Map ? (
+        <FontAwesome5 name="map-marker-alt" size={22} />
+      ) : type === headerItemCode.Cog ? (
+        <FontAwesome5 name="cog" size={22} />
+      ) : type === headerItemCode.Complete ? (
+        <Text style={styles.completeText}>완료</Text>
+      ) : type === headerItemCode.Back ? (
+        <AntDesign name="back" size={25} />
+      ) : type === headerItemCode.Filter ? (
+        <FontAwesome5 name="bars" size={22} />
+      ) : null}
+    </Pressable>
+  );
 };
 
 const Header = ({ options }: Props) => {
@@ -49,13 +85,21 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     alignItems: "center",
     ...globalStyle.boxShadow,
+    paddingHorizontal: 10,
   },
   headerText: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: "bold",
   },
   headerItem: {
-    height: 45,
-    width: 45,
+    minHeight: 45,
+    minWidth: 45,
+    justifyContent: "center",
+    alignItems: "center",
+  },
+  completeText: {
+    color: color.COLOR_BLUE_TEXT,
+    fontWeight: "bold",
+    fontSize: 16,
   },
 });

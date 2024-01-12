@@ -6,4 +6,6 @@ export default {
   COLOR_TAB_BAR_ICON: "#AFAFAF",
 
   COLOR_HEADER: "#fff",
+
+  COLOR_BLUE_TEXT: "#1B6FEE",
 };
