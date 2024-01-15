@@ -4,6 +4,8 @@ import MainLayout from "../../layout/MainLayout";
 import ContentLayout from "../../layout/ContentLayout";
 import PriceFilter from "../../components/cardsList/PriceFilter";
 
+import CardsSet from "../../components/cardsList/CardsSet";
+
 const CardsListScreen = () => {
   return (
     <>
@@ -18,7 +20,11 @@ const CardsListScreen = () => {
         <PriceFilter />
 
         <ContentLayout>
-          <Text>CardsList</Text>
+          {/* <CardsSet index={0} />
+          <CardsSet index={1} /> */}
+          {[...new Array(3)].map((el, index) => (
+            <CardsSet key={index} index={index} />
+          ))}
         </ContentLayout>
       </MainLayout>
     </>

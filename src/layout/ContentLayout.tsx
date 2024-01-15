@@ -1,5 +1,6 @@
 import React from "react";
 import { View, StyleSheet } from "react-native";
+import { contentPadding } from "../styles/size";
 
 type Props = {
   children: React.ReactNode;
@@ -13,7 +14,8 @@ export default ContentLayout;
 
 const styles = StyleSheet.create({
   view: {
-    height: 1000,
-    padding: 10,
+    padding: contentPadding,
+    paddingBottom: 200,
+    width: "100%",
   },
 });
