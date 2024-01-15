@@ -39,7 +39,7 @@ const styles = StyleSheet.create({
     width: "100%",
     flexDirection: "row",
     alignItems: "center",
-    borderBottomColor: color.COLOR_GRAY_BORDER,
+    borderBottomColor: color.COLOR_MAIN,
     borderBottomWidth: 1,
   },
   textBox: {

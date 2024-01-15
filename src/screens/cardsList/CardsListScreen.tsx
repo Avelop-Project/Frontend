@@ -1,7 +1,10 @@
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
+import ContentLayout from "../../layout/ContentLayout";
 import PriceFilter from "../../components/cardsList/PriceFilter";
+
+import CardsSet from "../../components/cardsList/CardsSet";
 
 const CardsListScreen = () => {
   return (
@@ -16,9 +19,13 @@ const CardsListScreen = () => {
       >
         <PriceFilter />
 
-        <View style={styles.container}>
-          <Text>CardsList</Text>
-        </View>
+        <ContentLayout>
+          {/* <CardsSet index={0} />
+          <CardsSet index={1} /> */}
+          {[...new Array(3)].map((el, index) => (
+            <CardsSet key={index} index={index} />
+          ))}
+        </ContentLayout>
       </MainLayout>
     </>
   );
@@ -26,8 +33,4 @@ const CardsListScreen = () => {
 
 export default CardsListScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    height: 1000,
-  },
-});
+const styles = StyleSheet.create({});

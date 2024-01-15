@@ -1,5 +1,7 @@
-import MainLayout from "../../layout/MainLayout";
 import { Text } from "react-native";
+
+import MainLayout from "../../layout/MainLayout";
+import ContentLayout from "../../layout/ContentLayout";
 
 const CameraScreen = () => {
   return (
@@ -8,7 +10,9 @@ const CameraScreen = () => {
         headerText: "카메라",
       }}
     >
-      <Text>Camera</Text>
+      <ContentLayout>
+        <Text>Camera</Text>
+      </ContentLayout>
     </MainLayout>
   );
 };
