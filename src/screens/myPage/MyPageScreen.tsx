@@ -1,13 +1,16 @@
-import MainLayout from "../../layout/MainLayout";
-
 import { Text, StyleSheet } from "react-native";
+
+import MainLayout from "../../layout/MainLayout";
+import ContentLayout from "../../layout/ContentLayout";
 
 const MyPageScreen = () => {
   return (
     <MainLayout
       header={{ headerText: "마이페이지", headerRight: { type: "cog" } }}
     >
-      <Text style={styles.text}>MyPage</Text>
+      <ContentLayout>
+        <Text style={styles.text}>MyPage</Text>
+      </ContentLayout>
     </MainLayout>
   );
 };

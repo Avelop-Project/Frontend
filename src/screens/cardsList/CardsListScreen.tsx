@@ -1,6 +1,7 @@
 import { Text, StyleSheet, View, ScrollView } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
+import ContentLayout from "../../layout/ContentLayout";
 import PriceFilter from "../../components/cardsList/PriceFilter";
 
 const CardsListScreen = () => {
@@ -16,9 +17,9 @@ const CardsListScreen = () => {
       >
         <PriceFilter />
 
-        <View style={styles.container}>
+        <ContentLayout>
           <Text>CardsList</Text>
-        </View>
+        </ContentLayout>
       </MainLayout>
     </>
   );
@@ -26,8 +27,4 @@ const CardsListScreen = () => {
 
 export default CardsListScreen;
 
-const styles = StyleSheet.create({
-  container: {
-    height: 1000,
-  },
-});
+const styles = StyleSheet.create({});
