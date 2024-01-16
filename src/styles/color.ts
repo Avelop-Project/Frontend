@@ -14,4 +14,6 @@ export default {
   COLOR_GRAY_BORDER: "#DEDEDE",
 
   COLOR_NOT_SELECTED_FILTER: "#EEF1F3",
+
+  COLOR_GRAY_ICON: "#BEBEBE",
 };
