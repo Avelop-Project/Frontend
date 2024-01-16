@@ -7,7 +7,6 @@ import ContentLayout from "../../layout/ContentLayout";
 
 const PostScreen = () => {
   const route = usePostRoute();
-  console.log(route.params.id);
 
   return (
     <MainLayout

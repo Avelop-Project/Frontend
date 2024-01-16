@@ -20,8 +20,6 @@ const CardsListScreen = () => {
         <PriceFilter />
 
         <ContentLayout>
-          {/* <CardsSet index={0} />
-          <CardsSet index={1} /> */}
           {[...new Array(3)].map((el, index) => (
             <CardsSet key={index} index={index} />
           ))}
