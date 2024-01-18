@@ -37,7 +37,10 @@ const Card = ({ size }: Props) => {
 export default Card;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    borderRadius: 5,
+    overflow: "hidden",
+  },
 });
 
 const CardImg = styled(Image)<Props>`
@@ -57,5 +60,4 @@ const CardImg = styled(Image)<Props>`
     `;
   }}
   object-fit: cover;
-  border-radius: 5%;
 `;

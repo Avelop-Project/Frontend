@@ -3,7 +3,6 @@ import { View, Text } from "react-native";
 import usePostRoute from "../../hooks/usePostRoute";
 
 import MainLayout from "../../layout/MainLayout";
-import ContentLayout from "../../layout/ContentLayout";
 
 const PostScreen = () => {
   const route = usePostRoute();
@@ -16,9 +15,7 @@ const PostScreen = () => {
         headerRight: { type: "cog" },
       }}
     >
-      <ContentLayout>
-        <Text>post screen</Text>
-      </ContentLayout>
+      <Text>post screen</Text>
     </MainLayout>
   );
 };

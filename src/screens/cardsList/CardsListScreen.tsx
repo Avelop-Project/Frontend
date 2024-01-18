@@ -1,7 +1,7 @@
-import { Text, StyleSheet, View, ScrollView } from "react-native";
+import React from "react";
+import { Text, StyleSheet, FlatList } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
-import ContentLayout from "../../layout/ContentLayout";
 import PriceFilter from "../../components/cardsList/PriceFilter";
 
 import CardsSet from "../../components/cardsList/CardsSet";
@@ -16,14 +16,14 @@ const CardsListScreen = () => {
           headerRight: { type: "filter" },
         }}
         stickyHeaderIndices={[0]}
+        ListHeaderComponent={<PriceFilter />}
       >
-        <PriceFilter />
-
-        <ContentLayout>
-          {[...new Array(3)].map((el, index) => (
-            <CardsSet key={index} index={index} />
-          ))}
-        </ContentLayout>
+        <FlatList
+          data={[1, 2, 3, 4]}
+          renderItem={({ item, index }) => <CardsSet index={index} />}
+          keyExtractor={(item, idx) => `${idx}`}
+          onEndReached={() => console.log("end")}
+        />
       </MainLayout>
     </>
   );
