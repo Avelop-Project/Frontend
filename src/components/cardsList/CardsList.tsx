@@ -6,19 +6,15 @@ import Card from "./Card";
 
 const CardsList = () => {
   return (
-    <View style={styles.container}>
+    <View>
       <FlatList
         data={dummy}
         keyExtractor={({ id }) => id}
         renderItem={({}) => <Card size={"medium"} />}
         horizontal={false}
         numColumns={3}
-        columnWrapperStyle={{
-          gap: contentPadding,
-        }}
-        contentContainerStyle={{
-          gap: contentPadding,
-        }}
+        columnWrapperStyle={styles.wrapper}
+        style={styles.wrapper}
       />
     </View>
   );
@@ -27,8 +23,8 @@ const CardsList = () => {
 export default CardsList;
 
 const styles = StyleSheet.create({
-  container: {
-    // backgroundColor: "orange",
+  wrapper: {
+    gap: contentPadding,
   },
 });
 

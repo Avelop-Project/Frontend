@@ -5,6 +5,7 @@ import color from "../../styles/color";
 
 import { AntDesign, FontAwesome5 } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
+import useStackNavigation from "../../hooks/useStackNavigation";
 
 const headerItemCode = {
   Back: "back",
@@ -32,11 +33,13 @@ type Props = {
 };
 
 const HeaderItem = ({ type, onClick }: HeaderItemProps) => {
-  const navigation = useNavigation();
+  const navigation = useStackNavigation();
 
   const onPress = () => {
     if (type === headerItemCode.Back) {
       navigation.goBack();
+    } else if (type === headerItemCode.Filter) {
+      navigation.navigate("FilterMenuScreen");
     } else {
       if (onClick) onClick();
     }

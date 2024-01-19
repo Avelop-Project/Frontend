@@ -1,7 +1,7 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 import CardsListScreen from "../screens/cardsList/CardsListScreen";
 
-const Stack = createNativeStackNavigator();
+const Stack = createStackNavigator();
 const CardsListNavigator = () => {
   return (
     <Stack.Navigator

@@ -6,6 +6,7 @@ import MainLayout from "../../layout/MainLayout";
 
 const PostScreen = () => {
   const route = usePostRoute();
+  console.log(route.params.id);
 
   return (
     <MainLayout
