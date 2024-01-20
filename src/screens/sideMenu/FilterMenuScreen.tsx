@@ -1,23 +1,50 @@
 import React from "react";
 
-import { Text } from "react-native";
+import { Pressable } from "react-native";
+import { FontAwesome } from "@expo/vector-icons";
 
 import SideMenuLayout from "../../layout/sideMenu/SideMenuLayout";
+import FilterList from "../../components/common/FilterList";
+
+import useStackNavigation from "../../hooks/useStackNavigation";
+import color from "../../styles/color";
+
+const ResetButton = () => {
+  return (
+    <Pressable>
+      <FontAwesome
+        name="refresh"
+        size={20}
+        // color={color.COLOR_GRAY_ICON}
+      />
+    </Pressable>
+  );
+};
 
 const FilterMenuScreen = () => {
+  const navigation = useStackNavigation();
+
+  const handleFiltering = () => {
+    navigation.goBack();
+  };
+  const handleReset = () => {};
+
   return (
-    <SideMenuLayout headerText="필터">
-      <Text>
-        Mise en place is a French term that literally means “put in place.” It
-        also refers to a way cooks in professional kitchens and restaurants set
-        up their work stations—first by gathering all ingredients for a recipes,
-        partially preparing them (like measuring out and chopping), and setting
-        them all near each other. Setting up mise en place before cooking is
-        another top tip for home cooks, as it seriously helps with organization.
-        It’ll pretty much guarantee you never forget to add an ingredient and
-        save you time from running back and forth from the pantry ten times.
-      </Text>
-    </SideMenuLayout>
+    <>
+      <SideMenuLayout
+        headerText="필터"
+        headerRight={<ResetButton />}
+        btn={{
+          text: "필터 적용",
+          background: true,
+          onPress: handleFiltering,
+        }}
+      >
+        <FilterList label="가격대" />
+        <FilterList label="음식 종류" />
+        <FilterList label="리뷰 태그" reviewTag={true} />
+      </SideMenuLayout>
+    </>
   );
 };
 

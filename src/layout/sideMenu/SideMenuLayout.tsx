@@ -17,9 +17,15 @@ import { Feather } from "@expo/vector-icons";
 import color from "../../styles/color";
 import { contentPadding, dh, dw } from "../../styles/size";
 
+import RoundButton, {
+  Props as BtnProps,
+} from "../../components/common/RoundButton";
+
 type Props = {
   children: React.ReactNode;
   headerText: string;
+  btn?: BtnProps;
+  headerRight?: React.ReactElement;
 };
 
 const SideMenuLayout = (props: Props) => {
@@ -74,16 +80,26 @@ const SideMenuLayout = (props: Props) => {
 
             <Text style={styles.headerText}>{props.headerText}</Text>
 
-            <View style={styles.headerItem}></View>
+            <View style={styles.headerItem}>{props.headerRight}</View>
           </View>
 
           <FlatList
             data={[]}
             renderItem={null}
-            ListEmptyComponent={<View>{props.children}</View>}
+            ListEmptyComponent={
+              <View style={styles.menuContent}>{props.children}</View>
+            }
             showsVerticalScrollIndicator={false}
           />
         </SafeAreaView>
+
+        {props.btn && (
+          <RoundButton
+            text={props.btn.text}
+            background={props.btn.background}
+            onPress={props.btn.onPress}
+          />
+        )}
       </Animated.View>
     </View>
   );
@@ -101,7 +117,6 @@ const styles = StyleSheet.create({
   menu: {
     backgroundColor: color.COLOR_WHITE_BACKGROUND,
     width: "80%",
-    padding: contentPadding,
   },
   menuHeader: {
     flexDirection: "row",
@@ -109,7 +124,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     borderBottomWidth: 1,
     borderBottomColor: color.COLOR_GRAY_BORDER,
-    marginBottom: contentPadding,
   },
   headerText: {
     fontWeight: "bold",
@@ -117,9 +131,12 @@ const styles = StyleSheet.create({
   },
   headerItem: {
     minHeight: 45,
-    minWidth: 22,
+    minWidth: 45,
     justifyContent: "center",
     alignItems: "center",
   },
-  menuContent: {},
+  menuContent: {
+    padding: contentPadding,
+    paddingBottom: 200,
+  },
 });

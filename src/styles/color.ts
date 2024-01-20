@@ -18,4 +18,13 @@ export default {
   COLOR_NOT_SELECTED_FILTER: "#EEF1F3",
 
   COLOR_GRAY_ICON: "#BEBEBE",
+
+  COLOR_REVIEW_TAG: {
+    PINK: "#FFA1A1",
+    YELLOW: "#FFD76C",
+    BLUE: "#B8E2FF",
+    GREEN: "#B3DEAC",
+  },
+
+  COLOR_ROUND_BUTTON: "#608DFF",
 };
