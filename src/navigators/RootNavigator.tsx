@@ -1,7 +1,9 @@
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createStackNavigator } from "@react-navigation/stack";
 
 import BottomTabNavigator from "./BottomTabNavigator";
 import PostScreen from "../screens/post/PostScreen";
+import FilterMenuScreen from "../screens/sideMenu/FilterMenuScreen";
+import LocationScreen from "../screens/search/LocationScreen";
 
 export type RootStackParamList = {
   CardsListScreen: undefined;
@@ -9,9 +11,11 @@ export type RootStackParamList = {
   MyPageScreen: undefined;
   BottomTabNavigator: undefined;
   PostScreen: { id: string };
+  FilterMenuScreen: undefined;
+  LocationScreen: undefined;
 };
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>();
 
 const RootNavigator = () => {
   return (
@@ -21,6 +25,14 @@ const RootNavigator = () => {
     >
       <Stack.Screen name="BottomTabNavigator" component={BottomTabNavigator} />
       <Stack.Screen name="PostScreen" component={PostScreen} />
+      <Stack.Screen
+        name="FilterMenuScreen"
+        component={FilterMenuScreen}
+        options={{
+          presentation: "transparentModal",
+        }}
+      />
+      <Stack.Screen name="LocationScreen" component={LocationScreen} />
     </Stack.Navigator>
   );
 };

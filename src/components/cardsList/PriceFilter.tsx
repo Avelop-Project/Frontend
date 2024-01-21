@@ -58,5 +58,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     paddingVertical: 6,
+    paddingRight: 10,
+    gap: 6,
   },
 });

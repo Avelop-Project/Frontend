@@ -1,6 +1,10 @@
 export default {
   COLOR_MAIN: "#EC6345",
+
   COLOR_WHITE_BACKGROUND: "#fff",
+  COLOR_TRANSARENT_BACKGROUND: "rgba(0, 0, 0, 0.2)",
+  COLOR_INPUT_BACKGROUND: "#F2F4F9",
+
   COLOR_BOX_SHADOW: "rgba(0, 0, 0, 0.2)",
 
   COLOR_TAB_BAR_ICON: "#AFAFAF",
@@ -16,4 +20,13 @@ export default {
   COLOR_NOT_SELECTED_FILTER: "#EEF1F3",
 
   COLOR_GRAY_ICON: "#BEBEBE",
+
+  COLOR_REVIEW_TAG: {
+    PINK: "#FFA1A1",
+    YELLOW: "#FFD76C",
+    BLUE: "#B8E2FF",
+    GREEN: "#B3DEAC",
+  },
+
+  COLOR_ROUND_BUTTON: "#608DFF",
 };

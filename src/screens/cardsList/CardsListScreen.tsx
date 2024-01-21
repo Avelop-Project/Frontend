@@ -1,9 +1,8 @@
-import React from "react";
-import { Text, StyleSheet, FlatList } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, FlatList, View, Pressable, Text } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
 import PriceFilter from "../../components/cardsList/PriceFilter";
-
 import CardsSet from "../../components/cardsList/CardsSet";
 
 const CardsListScreen = () => {

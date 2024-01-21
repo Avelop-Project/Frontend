@@ -21,13 +21,6 @@ const BottomTabNavigator = () => {
           height: 80,
           borderTopWidth: 2,
           borderTopColor: color.COLOR_MAIN,
-          //   shadowColor: color.COLOR_BOX_SHADOW,
-          //   shadowOffset: {
-          //     width: 0,
-          //     height: -3,
-          //   },
-          //   shadowOpacity: 0.2,
-          //   elevation: 3,
         },
         tabBarItemStyle: {
           marginBottom: 5,

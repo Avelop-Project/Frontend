@@ -22,6 +22,7 @@ const MyPageScreen = () => {
       ListHeaderComponent={
         <MyPageTabBar currentTab={currentTab} setCurrentTab={setCurrentTab} />
       }
+      padding={currentTab === "map" ? 0 : undefined}
     >
       {currentTab === "list" ? (
         <MyPageList />
