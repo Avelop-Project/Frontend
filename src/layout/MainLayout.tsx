@@ -2,7 +2,7 @@ import React from "react";
 import { SafeAreaView, StyleSheet, FlatList, View } from "react-native";
 
 import color from "../styles/color";
-import { contentPadding } from "../styles/size";
+import { contentPadding, dh } from "../styles/size";
 
 import Header from "./header/Header";
 import { HeaderProps } from "./header/Header";
@@ -26,6 +26,8 @@ const MainLayout = ({
     <SafeAreaView style={styles.container}>
       <Header options={header} />
 
+      {ListHeaderComponent}
+
       <FlatList
         data={[]}
         renderItem={null}
@@ -45,7 +47,7 @@ const MainLayout = ({
           </View>
         }
         stickyHeaderIndices={stickyHeaderIndices}
-        ListHeaderComponent={ListHeaderComponent}
+        // ListHeaderComponent={ListHeaderComponent}
         showsVerticalScrollIndicator={false}
         style={{ flex: 1 }}
       />
@@ -64,6 +66,7 @@ const styles = StyleSheet.create({
   content: {
     padding: contentPadding,
     width: "100%",
+    flex: 1,
     minHeight: "100%",
   },
 });

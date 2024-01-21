@@ -24,9 +24,7 @@ const ResetButton = () => {
 const FilterMenuScreen = () => {
   const navigation = useStackNavigation();
 
-  const handleFiltering = () => {
-    navigation.goBack();
-  };
+  const handleFiltering = () => {};
   const handleReset = () => {};
 
   return (

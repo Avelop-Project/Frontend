@@ -56,6 +56,15 @@ const SideMenuLayout = (props: Props) => {
     });
   };
 
+  const onPressBtn = () => {
+    if (props?.btn?.onPress) {
+      props.btn.onPress();
+    }
+    if (navigation.canGoBack()) {
+      goBack();
+    }
+  };
+
   useEffect(() => {
     if (width) {
       openMenu.start();
@@ -116,7 +125,7 @@ const SideMenuLayout = (props: Props) => {
           <RoundButton
             text={props.btn.text}
             background={props.btn.background}
-            onPress={props.btn.onPress}
+            onPress={onPressBtn}
           />
         )}
       </Animated.View>

@@ -1,7 +1,9 @@
 export default {
   COLOR_MAIN: "#EC6345",
+
   COLOR_WHITE_BACKGROUND: "#fff",
   COLOR_TRANSARENT_BACKGROUND: "rgba(0, 0, 0, 0.2)",
+  COLOR_INPUT_BACKGROUND: "#F2F4F9",
 
   COLOR_BOX_SHADOW: "rgba(0, 0, 0, 0.2)",
 
