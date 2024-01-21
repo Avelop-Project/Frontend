@@ -1,14 +1,11 @@
 import React, { useState } from "react";
-import { StyleSheet, FlatList, Pressable, View } from "react-native";
+import { StyleSheet, FlatList, View, Pressable, Text } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
 import PriceFilter from "../../components/cardsList/PriceFilter";
 import CardsSet from "../../components/cardsList/CardsSet";
-import { dh, dw } from "../../styles/size";
 
 const CardsListScreen = () => {
-  const [openMenu, setOpenMenu] = useState<boolean>(false);
-
   return (
     <>
       <MainLayout
