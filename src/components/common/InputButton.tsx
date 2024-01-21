@@ -6,7 +6,7 @@ import color from "../../styles/color";
 import { contentPadding } from "../../styles/size";
 import { globalStyle } from "../../styles/global";
 
-import { FontAwesome5 } from "@expo/vector-icons";
+import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
 
 const inputButtonCode = {
   location: {
@@ -21,7 +21,13 @@ const inputButtonCode = {
   },
   food: {
     text: "음식 종류 검색",
-    icon: null,
+    icon: (
+      <MaterialCommunityIcons
+        size={18}
+        name="food"
+        color={color.COLOR_GRAY_ICON}
+      />
+    ),
   },
 } as const;
 
@@ -30,9 +36,10 @@ type InputButtonType = keyof typeof inputButtonCode;
 type Props = {
   type: InputButtonType;
   absolute?: boolean;
+  shadow?: boolean;
 };
 
-const InputButton = ({ type, absolute }: Props) => {
+const InputButton = ({ type, absolute, shadow }: Props) => {
   const onPress = () => {
     if (type === "location") {
     } else if (type === "food") {
@@ -41,7 +48,10 @@ const InputButton = ({ type, absolute }: Props) => {
 
   return (
     <View style={absolute ? styles.view : null}>
-      <Pressable style={styles.container} onPress={onPress}>
+      <Pressable
+        style={[styles.container, shadow && globalStyle.boxShadow]}
+        onPress={onPress}
+      >
         <View style={styles.textBox}>
           {inputButtonCode[type].icon}
           <Text style={styles.text}>{inputButtonCode[type].text}</Text>
@@ -77,7 +87,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    ...globalStyle.boxShadow,
   },
   textBox: {
     flexDirection: "row",

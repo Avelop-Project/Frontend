@@ -13,9 +13,16 @@ type Props = {
   required?: boolean;
   optional?: boolean;
   reviewTag?: boolean;
+  BottomComponent?: React.ReactElement;
 };
 
-const FilterList = ({ label, required, optional, reviewTag }: Props) => {
+const FilterList = ({
+  label,
+  required,
+  optional,
+  reviewTag,
+  BottomComponent,
+}: Props) => {
   return (
     <View style={styles.container}>
       <View style={styles.labelBox}>
@@ -44,6 +51,10 @@ const FilterList = ({ label, required, optional, reviewTag }: Props) => {
           style={styles.filterList}
         />
       )}
+
+      {BottomComponent && (
+        <View style={styles.bottomWrapper}>{BottomComponent}</View>
+      )}
     </View>
   );
 };
@@ -54,9 +65,9 @@ const styles = StyleSheet.create({
   container: {
     borderBottomColor: color.COLOR_GRAY_BORDER,
     borderBottomWidth: 1,
-    // paddingVertical: 15,
-    marginBottom: 10,
-    paddingBottom: 10,
+    paddingVertical: 15,
+    // marginBottom: 10,
+    // paddingBottom: 10,
   },
   labelBox: {
     flexDirection: "row",
@@ -75,6 +86,9 @@ const styles = StyleSheet.create({
     flexWrap: "wrap",
     columnGap: 10,
     rowGap: 7,
+    marginTop: 15,
+  },
+  bottomWrapper: {
     marginTop: 15,
   },
 });

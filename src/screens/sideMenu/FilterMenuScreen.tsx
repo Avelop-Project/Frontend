@@ -8,6 +8,7 @@ import FilterList from "../../components/common/FilterList";
 
 import useStackNavigation from "../../hooks/useStackNavigation";
 import color from "../../styles/color";
+import InputButton from "../../components/common/InputButton";
 
 const ResetButton = () => {
   return (
@@ -39,7 +40,12 @@ const FilterMenuScreen = () => {
         }}
       >
         <FilterList label="가격대" />
-        <FilterList label="음식 종류" />
+
+        <FilterList
+          label="음식 종류"
+          BottomComponent={<InputButton type="food" />}
+        />
+
         <FilterList label="리뷰 태그" reviewTag={true} />
       </SideMenuLayout>
     </>
