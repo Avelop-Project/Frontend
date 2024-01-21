@@ -3,6 +3,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import BottomTabNavigator from "./BottomTabNavigator";
 import PostScreen from "../screens/post/PostScreen";
 import FilterMenuScreen from "../screens/sideMenu/FilterMenuScreen";
+import LocationScreen from "../screens/search/LocationScreen";
 
 export type RootStackParamList = {
   CardsListScreen: undefined;
@@ -11,6 +12,7 @@ export type RootStackParamList = {
   BottomTabNavigator: undefined;
   PostScreen: { id: string };
   FilterMenuScreen: undefined;
+  LocationScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -30,6 +32,7 @@ const RootNavigator = () => {
           presentation: "transparentModal",
         }}
       />
+      <Stack.Screen name="LocationScreen" component={LocationScreen} />
     </Stack.Navigator>
   );
 };

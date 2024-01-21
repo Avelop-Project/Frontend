@@ -12,6 +12,7 @@ type Props = {
   header: HeaderProps;
   stickyHeaderIndices?: number[];
   ListHeaderComponent?: React.ReactElement;
+  padding?: number;
 };
 
 const MainLayout = ({
@@ -19,6 +20,7 @@ const MainLayout = ({
   header,
   stickyHeaderIndices,
   ListHeaderComponent,
+  padding,
 }: Props) => {
   return (
     <SafeAreaView style={styles.container}>
@@ -27,7 +29,11 @@ const MainLayout = ({
       <FlatList
         data={[]}
         renderItem={null}
-        ListEmptyComponent={<View style={styles.content}>{children}</View>}
+        ListEmptyComponent={
+          <View style={[styles.content, padding !== undefined && { padding }]}>
+            {children}
+          </View>
+        }
         stickyHeaderIndices={stickyHeaderIndices}
         ListHeaderComponent={ListHeaderComponent}
         showsVerticalScrollIndicator={false}
@@ -44,12 +50,9 @@ const styles = StyleSheet.create({
     width: "100%",
     flex: 1,
   },
-  scrollView: {
-    flex: 1,
-    width: "100%",
-  },
   content: {
     padding: contentPadding,
+    flex: 1,
     paddingBottom: 200,
     width: "100%",
   },

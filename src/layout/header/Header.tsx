@@ -40,6 +40,8 @@ const HeaderItem = ({ type, onClick }: HeaderItemProps) => {
       navigation.goBack();
     } else if (type === headerItemCode.Filter) {
       navigation.navigate("FilterMenuScreen");
+    } else if (type === headerItemCode.Map) {
+      navigation.navigate("LocationScreen");
     } else {
       if (onClick) onClick();
     }

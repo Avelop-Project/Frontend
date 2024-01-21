@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderRadius: 100,
     alignItems: "center",
-    width: "70%",
+    width: "60%",
   },
   text: {
     color: color.COLOR_WHITE_TEXT,
