@@ -1,4 +1,4 @@
-import React, { useCallback, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import {
   StyleSheet,
@@ -30,17 +30,37 @@ type Props = {
 
 const SideMenuLayout = (props: Props) => {
   const navigation = useStackNavigation();
-  const { current } = useCardAnimation();
   const [width, setWidth] = useState<number>(0);
+  const animation = useRef(new Animated.Value(0)).current;
 
-  const onLayout = useCallback((e: LayoutChangeEvent) => {
+  const onLayout = (e: LayoutChangeEvent) => {
     const { width } = e.nativeEvent.layout;
     setWidth(width);
-  }, []);
+    animation.setValue(width);
+  };
 
-  const goBack = useCallback(() => {
-    navigation.goBack();
-  }, []);
+  const openMenu = Animated.timing(animation, {
+    toValue: 0,
+    duration: 500,
+    useNativeDriver: true,
+  });
+  const closeMenu = Animated.timing(animation, {
+    toValue: width,
+    duration: 500,
+    useNativeDriver: true,
+  });
+
+  const goBack = () => {
+    closeMenu.start(() => {
+      navigation.goBack();
+    });
+  };
+
+  useEffect(() => {
+    if (width) {
+      openMenu.start();
+    }
+  }, [width]);
 
   return (
     <View style={styles.container}>
@@ -61,10 +81,9 @@ const SideMenuLayout = (props: Props) => {
           {
             transform: [
               {
-                translateX: current.progress.interpolate({
-                  inputRange: [0, 1],
-                  outputRange: [width, 0],
-                  extrapolate: "identity",
+                translateX: animation.interpolate({
+                  inputRange: [-1, 0, 1],
+                  outputRange: [0, 0, 1],
                 }),
               },
             ],
@@ -136,7 +155,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   menuContent: {
-    padding: contentPadding,
+    // padding: contentPadding,
+    padding: 15,
     paddingBottom: 200,
   },
 });

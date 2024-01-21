@@ -54,7 +54,9 @@ const styles = StyleSheet.create({
   container: {
     borderBottomColor: color.COLOR_GRAY_BORDER,
     borderBottomWidth: 1,
-    paddingVertical: 15,
+    // paddingVertical: 15,
+    marginBottom: 10,
+    paddingBottom: 10,
   },
   labelBox: {
     flexDirection: "row",
