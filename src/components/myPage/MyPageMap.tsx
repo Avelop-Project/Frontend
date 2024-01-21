@@ -1,8 +1,14 @@
 import React from "react";
-import { Text } from "react-native";
+import { Text, View } from "react-native";
+
+import WebViewMap from "../map/WebViewMap";
 
 const MyPageMap = () => {
-  return <Text>MyPageMap</Text>;
+  return (
+    <View>
+      <WebViewMap />
+    </View>
+  );
 };
 
 export default MyPageMap;

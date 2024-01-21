@@ -30,13 +30,24 @@ const MainLayout = ({
         data={[]}
         renderItem={null}
         ListEmptyComponent={
-          <View style={[styles.content, padding !== undefined && { padding }]}>
+          <View
+            style={[
+              styles.content,
+              padding !== undefined
+                ? { padding }
+                : {
+                    padding: contentPadding,
+                    paddingBottom: 200,
+                  },
+            ]}
+          >
             {children}
           </View>
         }
         stickyHeaderIndices={stickyHeaderIndices}
         ListHeaderComponent={ListHeaderComponent}
         showsVerticalScrollIndicator={false}
+        style={{ flex: 1 }}
       />
     </SafeAreaView>
   );
@@ -52,8 +63,7 @@ const styles = StyleSheet.create({
   },
   content: {
     padding: contentPadding,
-    flex: 1,
-    paddingBottom: 200,
     width: "100%",
+    minHeight: "100%",
   },
 });
