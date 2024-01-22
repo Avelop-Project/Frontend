@@ -8,26 +8,32 @@ import {
   Animated,
   PanResponder,
   FlatList,
+  Text,
 } from "react-native";
+import { AntDesign } from "@expo/vector-icons";
 
 import color from "../../styles/color";
 import { contentPadding, dh } from "../../styles/size";
 
-type Props = {
+export type Props = {
   visible: boolean;
   setVisible: Dispatch<SetStateAction<boolean>>;
   heightPercentage?: number;
   children?: React.ReactNode;
+  headerText: string;
+  ListFooterComponent?: React.ReactElement;
 };
 
 const BottomSheet = ({
   visible,
   setVisible,
   heightPercentage,
+  headerText,
+  ListFooterComponent,
   ...props
 }: Props) => {
   const height =
-    heightPercentage !== undefined ? heightPercentage * dh : 0.7 * dh;
+    heightPercentage !== undefined ? heightPercentage * dh : 0.8 * dh;
 
   const animation = useRef(new Animated.Value(height)).current;
 
@@ -109,6 +115,16 @@ const BottomSheet = ({
               <View style={styles.topBar} />
             </Animated.View>
 
+            <View style={styles.header}>
+              <Pressable style={styles.headerBtn} onPress={closeModal}>
+                <AntDesign name="back" size={25} />
+              </Pressable>
+
+              <Text style={styles.headerText}>{headerText}</Text>
+
+              <Pressable style={styles.headerBtn}></Pressable>
+            </View>
+
             <FlatList
               data={[]}
               renderItem={null}
@@ -117,6 +133,7 @@ const BottomSheet = ({
               }
               showsVerticalScrollIndicator={false}
               style={styles.flatList}
+              ListFooterComponent={ListFooterComponent}
             />
           </Animated.View>
         </View>
@@ -145,20 +162,37 @@ const styles = StyleSheet.create({
   topBox: {
     width: "100%",
     alignItems: "center",
-    paddingVertical: 15,
+    paddingVertical: 10,
   },
   topBar: {
     width: "20%",
-    height: 6,
+    height: 5,
     borderRadius: 100,
     backgroundColor: color.COLOR_GRAY_BORDER,
+  },
+  header: {
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  headerText: {
+    fontWeight: "bold",
+    fontSize: 18,
+  },
+  headerBtn: {
+    width: 45,
+    height: 45,
+    alignItems: "center",
+    justifyContent: "center",
   },
   flatList: {
     flex: 1,
     paddingHorizontal: contentPadding,
   },
   content: {
+    flex: 1,
     width: "100%",
+    minHeight: "100%",
     paddingBottom: 200,
   },
 });

@@ -1,6 +1,7 @@
 import { Text } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
+import LoginRequiredPage from "../../components/account/LoginRequiredPage";
 
 const CameraScreen = () => {
   return (
@@ -9,7 +10,8 @@ const CameraScreen = () => {
         headerText: "카메라",
       }}
     >
-      <Text>Camera</Text>
+      {/* <Text>Camera</Text> */}
+      <LoginRequiredPage />
     </MainLayout>
   );
 };

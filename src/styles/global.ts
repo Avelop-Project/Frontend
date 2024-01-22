@@ -5,10 +5,10 @@ export const globalStyle = StyleSheet.create({
   boxShadow: {
     shadowColor: color.COLOR_BOX_SHADOW,
     shadowOffset: {
-      width: 3,
-      height: 3,
+      width: 5,
+      height: 5,
     },
-    shadowOpacity: 0.2,
+    shadowOpacity: 0.3,
     elevation: 3,
   },
 });
