@@ -6,6 +6,7 @@ import FilterMenuScreen from "../screens/sideMenu/FilterMenuScreen";
 import LocationScreen from "../screens/search/LocationScreen";
 import SearchFoodTypeScreen from "../screens/search/SearchFoodTypeScreen";
 import SearchLocationScreen from "../screens/search/SearchLocationScreen";
+import SignUpScreen from "../screens/account/SignUpScreen";
 
 export type RootStackParamList = {
   CardsListScreen: undefined;
@@ -17,6 +18,7 @@ export type RootStackParamList = {
   LocationScreen: undefined;
   SearchFoodTypeScreen: undefined;
   SearchLocationScreen: undefined;
+  SignUpScreen: undefined;
 };
 
 const Stack = createStackNavigator<RootStackParamList>();
@@ -46,6 +48,7 @@ const RootNavigator = () => {
         name="SearchLocationScreen"
         component={SearchLocationScreen}
       />
+      <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
     </Stack.Navigator>
   );
 };
