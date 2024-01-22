@@ -4,21 +4,21 @@ import { Text } from "react-native";
 
 import MainLayout from "../../layout/MainLayout";
 
-const SearchFoodTypeScreen = () => {
+const SearchLocationScreen = () => {
   return (
     <>
       <MainLayout
         header={{
-          headerText: "음식 종류 검색",
+          headerText: "위치 검색",
           headerLeft: {
             type: "back",
           },
         }}
       >
-        <Text>음식 검색</Text>
+        <Text>위치 검색</Text>
       </MainLayout>
     </>
   );
 };
 
-export default SearchFoodTypeScreen;
+export default SearchLocationScreen;

@@ -1,12 +1,19 @@
 import React from "react";
 
-import { StyleSheet, Text, View, Pressable } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  Pressable,
+  TouchableOpacity,
+} from "react-native";
 
 import color from "../../styles/color";
 import { contentPadding } from "../../styles/size";
 import { globalStyle } from "../../styles/global";
 
 import { FontAwesome5, MaterialCommunityIcons } from "@expo/vector-icons";
+import useStackNavigation from "../../hooks/useStackNavigation";
 
 const inputButtonCode = {
   location: {
@@ -40,15 +47,20 @@ type Props = {
 };
 
 const InputButton = ({ type, absolute, shadow }: Props) => {
+  const navigation = useStackNavigation();
+
   const onPress = () => {
     if (type === "location") {
+      navigation.navigate("SearchLocationScreen");
     } else if (type === "food") {
+      navigation.navigate("SearchFoodTypeScreen");
     }
   };
 
   return (
     <View style={absolute ? styles.view : null}>
-      <Pressable
+      <TouchableOpacity
+        activeOpacity={0.85}
         style={[styles.container, shadow && globalStyle.boxShadow]}
         onPress={onPress}
       >
@@ -62,7 +74,7 @@ const InputButton = ({ type, absolute, shadow }: Props) => {
           size={16}
           name="chevron-right"
         />
-      </Pressable>
+      </TouchableOpacity>
     </View>
   );
 };
