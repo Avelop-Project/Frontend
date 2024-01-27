@@ -72,17 +72,19 @@ const BottomSheet = ({
     })
   ).current;
 
-  useEffect(() => {
-    if (visible) {
-      openBottomSheet.start();
-    }
-  }, [visible]);
-
   const closeModal = () => {
     closeBottomSheet.start(() => {
       setVisible(false);
     });
   };
+
+  useEffect(() => {
+    if (visible) {
+      openBottomSheet.start();
+    } else {
+      closeModal();
+    }
+  }, [visible]);
 
   return (
     <>
@@ -133,8 +135,9 @@ const BottomSheet = ({
               }
               showsVerticalScrollIndicator={false}
               style={styles.flatList}
-              ListFooterComponent={ListFooterComponent}
             />
+
+            {ListFooterComponent}
           </Animated.View>
         </View>
       </Modal>

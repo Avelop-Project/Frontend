@@ -3,6 +3,7 @@ import React from "react";
 import { Text, Pressable, StyleSheet, View } from "react-native";
 
 import color from "../../styles/color";
+import { contentPadding } from "../../styles/size";
 
 type Props = {
   text: string;
@@ -31,13 +32,14 @@ const styles = StyleSheet.create({
   container: {
     width: "100%",
     height: 100,
-    paddingTop: 10,
+    // paddingTop: 10,
     position: "absolute",
     bottom: 0,
     left: 0,
     right: 0,
     zIndex: 100,
     alignItems: "center",
+    padding: contentPadding,
   },
   btn: {
     width: "100%",

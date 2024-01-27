@@ -14,6 +14,7 @@ const WebViewMap = () => {
       <WebView
         // source={{ uri: LOCAL_WEBVIEW_URI }}
         source={{ uri: WEBVIEW_URI }}
+        // source={{ uri: "http://127.0.0.1:3000" }}
         style={{ flex: 1 }}
       />
     </View>
