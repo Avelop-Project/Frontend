@@ -7,6 +7,7 @@ import color from "../../styles/color";
 import BottomSheet from "../../layout/bottomSheet/BottomSheet";
 import BottomButton from "../../components/common/BottomButton";
 import Input from "../../components/common/Input";
+import VerifyInput from "../../components/common/VerifyInput";
 
 const findType = {
   ID: "id",
@@ -70,18 +71,22 @@ const FindAccountBottomSheet = ({ visible, setVisible, type }: Props) => {
         </View>
 
         {type === "password" && (
-          <Input
-            value={id}
-            setValue={setId}
-            placeholder="아이디를 입력해주세요."
+          <VerifyInput
+            input={{
+              value: id,
+              setValue: setId,
+              placeholder: "아이디를 입력해주세요.",
+            }}
             verify="id"
           />
         )}
 
-        <Input
-          value={email}
-          setValue={setEmail}
-          placeholder="이메일을 입력해주세요."
+        <VerifyInput
+          input={{
+            value: email,
+            setValue: setEmail,
+            placeholder: "이메일을 입력해주세요.",
+          }}
           verify="email"
         />
       </BottomSheet>
