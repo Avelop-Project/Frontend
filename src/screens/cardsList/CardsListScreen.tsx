@@ -9,17 +9,17 @@ import PriceFilter from "../../components/cardsList/PriceFilter";
 import CardsSet from "../../components/cardsList/CardsSet";
 
 const CardsListScreen = () => {
-  const testAPI = async () => {
-    try {
-      const res = await axios.get(`${TEST_API_URL}/card/browse`);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  // const testAPI = async () => {
+  //   try {
+  //     const res = await axios.get(`${TEST_API_URL}/card/browse`);
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
+  // };
 
-  useEffect(() => {
-    testAPI();
-  }, []);
+  // useEffect(() => {
+  //   testAPI();
+  // }, []);
 
   return (
     <>

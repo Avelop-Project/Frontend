@@ -7,6 +7,7 @@ import BottomButton from "../../components/common/BottomButton";
 import VerifyInput from "../../components/common/VerifyInput";
 import VerifyPassword from "../../components/common/VerifyPassword";
 import AccountInputWrapper from "../../components/account/AccountInputWrapper";
+import AgreeToUseList from "../../components/account/AgreeToUseList";
 
 const SignUpScreen = () => {
   const [nickname, setNickname] = useState<string>("");
@@ -66,6 +67,10 @@ const SignUpScreen = () => {
               placeholder: "비밀번호 확인",
             }}
           />
+        </AccountInputWrapper>
+
+        <AccountInputWrapper name="이용약관 동의">
+          <AgreeToUseList />
         </AccountInputWrapper>
       </MainLayout>
 

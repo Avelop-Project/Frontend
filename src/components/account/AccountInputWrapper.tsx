@@ -1,7 +1,6 @@
 import React from "react";
 
 import { View, StyleSheet, Text } from "react-native";
-import { FontAwesome } from "@expo/vector-icons";
 
 import color from "../../styles/color";
 
@@ -15,13 +14,6 @@ const AccountInputWrapper = ({ name, children }: Props) => {
     <View style={styles.container}>
       <View style={styles.wrapper}>
         <Text style={styles.name}>{name}</Text>
-
-        {/* <FontAwesome
-          name="check"
-          size={18}
-          // color={color.COLOR_GRAY_ICON}
-          color={color.COLOR_GREEN_TEXT}
-        /> */}
       </View>
 
       {children}
